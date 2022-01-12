@@ -15,7 +15,7 @@ class AccountDetails : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account_details)
-        val database = Firebase.database.reference
+        val database = FirebaseDatabase.getInstance().getReference("users")
         val phoneNum=intent.getStringExtra("PhoneNum")
         val name= intent.getStringExtra("name")
 
@@ -27,8 +27,15 @@ class AccountDetails : AppCompatActivity() {
         fun writeNewUser( name: String, PhoneNo: String,bdType:String) {
             val user = User(name, phoneNum, bdType)
 
-            database.child("users").child(PhoneNo).setValue(user)
-            Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show()
+            database.child(PhoneNo).setValue(user).addOnSuccessListener  {
+                Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+            }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+
+                }
+            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+
         }
 
         EndoBtn.setOnClickListener{
