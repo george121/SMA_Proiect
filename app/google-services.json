@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "985946037397",
+    "project_id": "authsma",
+    "storage_bucket": "authsma.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985946037397:android:c8f4d4a08809e3a2d70f9c",
+        "android_client_info": {
+          "package_name": "com.test_sma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985946037397-gjouksl89d75q7ggevvn08ip2jt95mmn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.test_sma",
+            "certificate_hash": "981fd1d42e4c046ebec2e38bb34ecf448a6d1c36"
+          }
+        },
+        {
+          "client_id": "985946037397-h2i547ddbemi29s2i1t65m1dvolti7jn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMbxvUo7OGYSkAw57OjDRmV40PJWXZOU4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985946037397-h2i547ddbemi29s2i1t65m1dvolti7jn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
