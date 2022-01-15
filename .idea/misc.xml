@@ -4,11 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/TEST_SMA/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19814814814814816" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/layout/accountdetails1.xml" value="0.264" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_account_details.xml" value="0.176" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_login_register.xml" value="0.1793478260869565" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_register.xml" value="0.152" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_register.xml" value="0.264" />
       </map>
     </option>
   </component>
