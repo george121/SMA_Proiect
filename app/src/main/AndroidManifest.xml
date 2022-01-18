@@ -13,16 +13,9 @@
         android:theme="@style/Theme.TEST_SMA"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".workOutGen.TypeSelect"
-            android:exported="false"
-            android:label="@string/title_activity_type_select"
-            android:theme="@style/Theme.TEST_SMA.NoActionBar" />
+            android:name=".workOutGen.SelectWorkOuts"
+            android:exported="false" />
 
-        <activity
-            android:name=".workOutGen.WorkOutPage"
-            android:exported="false"
-            android:label="@string/title_activity_work_out_page"
-            android:theme="@style/Theme.TEST_SMA.NoActionBar" />
 
         <activity
             android:name=".workOutGen.TypeTimeSelect"

@@ -14,7 +14,7 @@ import com.test_sma.MainActivity
 import com.test_sma.R
 import com.test_sma.setDetails.AccountDetails1
 import com.test_sma.setDetails.AccountDetails2
-import com.test_sma.workOutGen.TypeSelect
+import com.test_sma.workOutGen.TypeTimeSelect
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 import java.lang.Exception
@@ -64,11 +64,10 @@ class Login : AppCompatActivity() {
                                         Toast.makeText(this@Login,
                                         "Welcome Back!",Toast.LENGTH_SHORT).show()
                                         val intent =
-                                            Intent(this@Login, TypeSelect::class.java)
+                                            Intent(this@Login, TypeTimeSelect::class.java)
                                         intent.flags =
                                             Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                         intent.putExtra("userName",document.get("Name").toString())
-                                        intent.putExtra("email_id",email)
                                         startActivity(intent)
                                         finish()
                                     }

@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.04" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/primaryGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -40,6 +40,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:text="@string/chest"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent" />
 
         <RadioButton
@@ -48,6 +49,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:text="@string/back"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -58,6 +60,19 @@
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:text="@string/legs"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/absBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:text="Abs"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,10 +80,11 @@
     </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/secondaryGroup"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:orientation="horizontal"
 
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -82,6 +98,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:text="@string/biceps"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent" />
 
         <RadioButton
@@ -90,6 +107,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:text="@string/triceps"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent" />
 
         <RadioButton
@@ -98,7 +116,20 @@
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:text="@string/shoulders"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.795" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

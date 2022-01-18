@@ -3,31 +3,36 @@ package com.test_sma.workOutGen
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import com.test_sma.MainActivity
+import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import com.test_sma.R
+import kotlinx.android.synthetic.main.activity_type_time_select.*
 
 class TypeTimeSelect : AppCompatActivity() {
+    lateinit var radioButton1: RadioButton
+    lateinit var radioButton2: RadioButton
+    val userName=intent.getStringExtra("userName")
+    private lateinit var button: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        title = "Hello $userName, select part to train"
         setContentView(R.layout.activity_type_time_select)
-    }
+        button = findViewById(R.id.submitBtn)
+        submitBtn.setOnClickListener(){
+            val selected1 = primaryGroup.checkedRadioButtonId
+            val selected2 = secondaryGroup.checkedRadioButtonId
+            radioButton1 = findViewById(selected1)
+            radioButton2 = findViewById(selected2)
+            val intent = Intent(this,SelectWorkOuts::class.java)
+            intent.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            intent.putExtra("typePrimary",radioButton1.text)
+            intent.putExtra("typeSecondary",radioButton2.text)
+            startActivity(intent)
+            finish()
 
-
-    fun getExercises(type1:String,type2:String){
-        val db = Firebase.firestore
-        val dbRef = db.collection("training").document(type1).collection(type2)
-        dbRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    Toast.makeText(
-                        this@TypeTimeSelect,
-                        "Getting exercises", Toast.LENGTH_SHORT
-                    ).show()
-                    val exercise1 =  dbRef.whereGreaterThan("time",20).limit(2)
-                }
-            }
+        }
     }
 }
+
