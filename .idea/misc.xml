@@ -4,12 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/TEST_SMA/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19814814814814816" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.16331994645247658" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.15505464480874318" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/accountdetails1.xml" value="0.264" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_account_details.xml" value="0.176" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_login_register.xml" value="0.1793478260869565" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_scrolling.xml" value="0.2056159420289855" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_type_time_select.xml" value="0.264" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/layout/content_scrolling.xml" value="0.2056159420289855" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/menu/menu_scrolling.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
