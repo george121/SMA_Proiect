@@ -12,12 +12,13 @@ import kotlinx.android.synthetic.main.activity_type_time_select.*
 class TypeTimeSelect : AppCompatActivity() {
     lateinit var radioButton1: RadioButton
     lateinit var radioButton2: RadioButton
-    val userName=intent.getStringExtra("userName")
+
     private lateinit var button: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        title = "Hello $userName, select part to train"
         setContentView(R.layout.activity_type_time_select)
+        val userName=intent.getStringExtra("userName")
+        title = "Hello $userName, select part to train"
         button = findViewById(R.id.submitBtn)
         submitBtn.setOnClickListener(){
             val selected1 = primaryGroup.checkedRadioButtonId

@@ -6,9 +6,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.test_sma.R
+import kotlinx.android.extensions.LayoutContainer
 
-class CustomAdapter (private val mList: List<ItemsViewModel>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter (options: FirestoreRecyclerOptions<WorkOut>) : FirestoreRecyclerAdapter<WorkOut, CustomAdapter.ViewHolder>(options) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // inflates the card_view_design view
         // that is used to hold list item
@@ -17,26 +20,20 @@ class CustomAdapter (private val mList: List<ItemsViewModel>) : RecyclerView.Ada
 
         return ViewHolder(view)
 }
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int, item: WorkOut) {
+        // val id = snapshots.getSnapshot(position).id
 
-        val ItemsViewModel = mList[position]
-
-        // sets the image to the imageview from our itemHolder class
-        holder.imageView.setImageResource(ItemsViewModel.image)
-
-        // sets the text to the textview from our itemHolder class
-        holder.nameView.text = ItemsViewModel.name
-        holder.qtyView.text = ItemsViewModel.qty.toString()
-        holder.repsView.text = ItemsViewModel.reps.toString()
-
+        holder.apply {
+            nameView.text = item.name
+            qtyView.text = item.qty
+            repsView.text=item.reps
+        }
     }
-    override fun getItemCount(): Int {
-        return mList.size
-    }
+
+
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val repsView: TextView=itemView.findViewById(R.id.repsView)
         val qtyView: TextView=itemView.findViewById(R.id.qtyView)
-        val imageView: ImageView = itemView.findViewById(R.id.imageview)
         val nameView: TextView = itemView.findViewById(R.id.nameView)
     }
 }
