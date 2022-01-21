@@ -34,12 +34,12 @@ class SelectWorkOuts : AppCompatActivity() {
         primaryList = arrayListOf()
         secondaryList = arrayListOf()
 
+        title="Primary Workout"
         myAdapter = CustomAdapter(primaryList)
 
         recyclerView.adapter = myAdapter
 
         EventChangeListener("Primary", primary.toString())
-
 
     }
 
