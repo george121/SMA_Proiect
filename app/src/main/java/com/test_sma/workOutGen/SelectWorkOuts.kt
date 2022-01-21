@@ -8,9 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.firebase.ui.firestore.SnapshotParser
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.QueryDocumentSnapshot
+import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.test_sma.R
@@ -18,78 +16,65 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 var adapter:CustomAdapter?=null
 private val firestore = Firebase.firestore
+private lateinit var recyclerView: RecyclerView
+private lateinit var primaryList:ArrayList<SelectWorkOuts.WorkOut>
+private lateinit var secondaryList: ArrayList<SelectWorkOuts.WorkOut>
+private lateinit var myAdapter: CustomAdapter
+private lateinit var db : FirebaseFirestore
 class SelectWorkOuts : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        lateinit var primaryList:ArrayList<WorkOut>
-        lateinit var secondaryList: ArrayList<WorkOut>
         setContentView(R.layout.activity_select_work_outs)
-        var recyclerView = findViewById<RecyclerView>(R.id.recycleView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
         val primary = intent.getStringExtra("typePrimary")
         val secondary = intent.getStringExtra("typeSecondary")
-        val query =firestore.collection("training").document("Primary").collection(primary.toString())
-      //  secondaryList = getWorkOut("Secondary", secondary.toString())
-        val options: FirestoreRecyclerOptions<WorkOut> = FirestoreRecyclerOptions.Builder<WorkOut>()
-            .setQuery(query, WorkOut::class.java)
-            .build()
+        recyclerView = findViewById(R.id.recycleView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+
+        primaryList = arrayListOf()
+        secondaryList = arrayListOf()
+
+        myAdapter = CustomAdapter(primaryList)
+
+        recyclerView.adapter = myAdapter
+
+        EventChangeListener("Primary", primary.toString())
 
 
-        val builder = FirestoreRecyclerOptions.Builder<WorkOut>()
-            .setQuery(query, object : SnapshotParser<WorkOut> {
-                override fun parseSnapshot(snapshot: DocumentSnapshot): WorkOut {
-                    return snapshot.toObject(WorkOut::class.java)!!
-                }
-            })
-            .setLifecycleOwner(this)
-
-        val adapter = CustomAdapter(options)
-        recyclerView.adapter = adapter
-    }
-    override fun onStart() {
-        super.onStart()
-        adapter!!.startListening()
     }
 
-    override fun onStop() {
-        super.onStop()
 
-        if (adapter != null) {
-            adapter!!.stopListening()
-        }
-    }
+    data class WorkOut(
+        var name: String? = null,
+        var quantity: String? = null,
+        var reps: String? = null,
 
-    fun getList(mutableList: MutableList<WorkOut>): MutableList<WorkOut> {
-        return mutableList
-    }
-     fun getWorkOut(type: String, bodyPart: String): ArrayList<WorkOut> {
-        var exerciseList: ArrayList<WorkOut> = ArrayList()
-         firestore.collection("training").document(type).collection(bodyPart)
-             .get().addOnCompleteListener { task ->
-                 when {
-                     task.isSuccessful -> {
-                            val documents = task.result
-                            for(document: QueryDocumentSnapshot in documents){
-                             exerciseList.add(document.toObject(WorkOut::class.java))
-
-                         }
-
-                     }
-                 }
-             }
-            .addOnFailureListener { it ->
-                Log.d("TAG", " error : $it")
-            }
-
-
-
-        return exerciseList
-    }
+    )
 }
+private fun EventChangeListener(type: String, bodyPart: String) {
+    db = FirebaseFirestore.getInstance()
+    db.collection("training").document(type).collection(bodyPart)
+        .addSnapshotListener(object : EventListener<QuerySnapshot> {
+            override fun onEvent(
+                value: QuerySnapshot?,
+                error: FirebaseFirestoreException?
+            ) {
+                if (error != null) {
+                    Log.e("Firestore Error", error.message.toString())
+                    return
+                }
+                for (dc: DocumentChange in value?.documentChanges!!) {
 
+                    if (dc.type == DocumentChange.Type.ADDED) {
 
-data class WorkOut(
-    var reps: String? = null,
-    var name: String? = null,
-    var qty: String? = null,
-)
+                        primaryList.add(dc.document.toObject(SelectWorkOuts.WorkOut::class.java))
+
+                    }
+
+                }
+                myAdapter.notifyDataSetChanged()
+
+            }
+        })
+
+}
