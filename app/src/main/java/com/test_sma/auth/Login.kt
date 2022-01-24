@@ -21,8 +21,51 @@ import java.lang.Exception
 
 class Login : AppCompatActivity() {
     val db = Firebase.firestore
+    val docRef = db.collection("users")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            val userId = FirebaseAuth.getInstance().currentUser!!.uid
+            Toast.makeText(
+                this@Login,
+                "Login succesfull",
+                Toast.LENGTH_SHORT
+            ).show()
+
+
+            docRef.document(userId).get()
+                .addOnSuccessListener { document->
+                    if(document!=null){
+                        Toast.makeText(this@Login,
+                            "Welcome Back!",Toast.LENGTH_SHORT).show()
+                        val intent =
+                            Intent(this@Login, TypeTimeSelect::class.java)
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        intent.putExtra("userName",document.get("Name").toString())
+                        startActivity(intent)
+                        finish()
+                    }
+                    else{
+                        Toast.makeText(this@Login,
+                            "Taking you to setup account!",Toast.LENGTH_SHORT).show()
+                        val intent =
+                            Intent(this@Login, AccountDetails1::class.java)
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                        finish()
+
+                    }
+                }
+                .addOnFailureListener { Exception->
+                    Log.d("TAG","Failed with",Exception)
+                }
+
+        }
+
+
         setContentView(R.layout.activity_login)
 
         RegisterNowButton.setOnClickListener {
@@ -57,8 +100,8 @@ class Login : AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
 
-                            val docRef = db.collection("users").document(userId)
-                            docRef.get()
+
+                            docRef.document(userId).get()
                                 .addOnSuccessListener { document->
                                     if(document!=null){
                                         Toast.makeText(this@Login,

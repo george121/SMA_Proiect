@@ -13,10 +13,18 @@
         android:theme="@style/Theme.TEST_SMA"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".workOutGen.CurrentWKProgram"
+            android:exported="false" />
+        <activity
+            android:name=".MainMenu.MainMenu"
+            android:exported="false"
+            android:label="@string/title_activity_main_menu" />
+        <activity
+            android:name=".workOutGen.SecondWorkOut"
+            android:exported="false" />
+        <activity
             android:name=".workOutGen.SelectWorkOuts"
             android:exported="false" />
-
-
         <activity
             android:name=".workOutGen.TypeTimeSelect"
             android:exported="false" />

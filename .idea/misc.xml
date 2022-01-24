@@ -3,20 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TEST_SMA/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1265625" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1265625" />
         <entry key="..\:/TEST_SMA/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19814814814814816" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1265625" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.16331994645247658" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.15505464480874318" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/accountdetails1.xml" value="0.264" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_account_details.xml" value="0.176" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_current_wkprogram.xml" value="0.1" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_login_register.xml" value="0.1793478260869565" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_main_menu.xml" value="0.2" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_scrolling.xml" value="0.2056159420289855" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_second_work_out.xml" value="0.1" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_select_work_outs.xml" value="0.152" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/activity_type_time_select.xml" value="0.264" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/card_view_design.xml" value="0.3074866310160428" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/content_scrolling.xml" value="0.2056159420289855" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/layout/fragment_home.xml" value="0.136" />
+        <entry key="..\:/TEST_SMA/app/src/main/res/layout/fragment_notifications.xml" value="0.176" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/test.xml" value="0.1" />
         <entry key="..\:/TEST_SMA/app/src/main/res/layout/test3.xml" value="0.12916666666666668" />
         <entry key="..\:/TEST_SMA/app/src/main/res/menu/menu_scrolling.xml" value="0.25416666666666665" />
