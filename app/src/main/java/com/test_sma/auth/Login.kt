@@ -40,10 +40,9 @@ class Login : AppCompatActivity() {
                         Toast.makeText(this@Login,
                             "Welcome Back!",Toast.LENGTH_SHORT).show()
                         val intent =
-                            Intent(this@Login, TypeTimeSelect::class.java)
+                            Intent(this@Login, MainActivity::class.java)
                         intent.flags =
                             Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        intent.putExtra("userName",document.get("Name").toString())
                         startActivity(intent)
                         finish()
                     }
@@ -107,10 +106,9 @@ class Login : AppCompatActivity() {
                                         Toast.makeText(this@Login,
                                         "Welcome Back!",Toast.LENGTH_SHORT).show()
                                         val intent =
-                                            Intent(this@Login, TypeTimeSelect::class.java)
+                                            Intent(this@Login, MainActivity::class.java)
                                         intent.flags =
                                             Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                        intent.putExtra("userName",document.get("Name").toString())
                                         startActivity(intent)
                                         finish()
                                     }

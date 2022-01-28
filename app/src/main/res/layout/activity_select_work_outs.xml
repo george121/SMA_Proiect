@@ -5,8 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background1"
-    tools:context=".workOutGen.SelectWorkOuts">
-
+    tools:context=".workOutGen.SelectWorkOuts"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/continueBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:minHeight="48dp"
+        android:text="Continue" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
         android:layout_width="match_parent"
@@ -15,5 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:itemCount="5"
         tools:layout_editor_absoluteY="1dp"
-        tools:listitem="@layout/card_view_design" />
+        tools:listitem="@layout/card_view_design"
+        android:padding="5dp"/>
+
 </LinearLayout>
