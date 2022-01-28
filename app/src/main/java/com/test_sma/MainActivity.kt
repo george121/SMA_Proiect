@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        title="Home"
         val db = Firebase.firestore
         val docRef = db.collection("users")
         val uid=FirebaseAuth.getInstance().currentUser!!.uid
